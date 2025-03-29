@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pose Tracking Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        #status {
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            background-color: red;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        #connectBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            margin: 5px;
+        }
+        #connectBtn:hover {
+            background-color: #0056b3;
+        }
+        #videoFeed {
+            width: 640px;
+            height: 480px;
+            border: 2px solid #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pose Tracking WebSocket Test</h1>
+    <div id="status">Disconnected</div>
+    <button id="connectBtn">Connect</button>
+    <img id="videoFeed" alt="Live Pose Feed" />
+    <div id="poseInfo">Angle: -- | Stage: -- | Count: --</div>
+    <div id="exerciseMessage" style="color:red;">Waiting for wave...</div>
+
+    <script>
+        let socket;
+        const statusDiv = document.getElementById("status");
+        const videoFeed = document.getElementById("videoFeed");
+        const poseInfo = document.getElementById("poseInfo");
+
+        document.getElementById("connectBtn").onclick = function() {
+            socket = new WebSocket("ws://localhost:8000/ws/pose");
+
+            socket.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                if (data.frame) videoFeed.src = "data:image/jpeg;base64," + data.frame;
+                poseInfo.textContent = `Angle: ${data.angle?.toFixed(2) || "--"} | Stage: ${data.stage || "--"} | Count: ${data.counter || "--"}`;
+            };
+        };
+    </script>
+</body>
+</html>
