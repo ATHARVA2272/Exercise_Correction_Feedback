@@ -1,0 +1,21 @@
+/* Ensures app takes full height and footer sticks to the bottom */
+.appContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+  }
+  
+  /* Main content grows to push footer down */
+  .mainContent {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  /* Footer styling */
+  .footer {
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    margin-top: auto; /* Push footer to bottom */
+  }
+  

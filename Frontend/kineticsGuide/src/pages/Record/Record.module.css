@@ -1,0 +1,66 @@
+/* Record.module.css */
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: orange;
+    margin-bottom: 20px;
+  }
+  
+  .title span {
+    color: gray;
+  }
+  
+  .frameContainer {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    background-color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .frameImage {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .waitingText {
+    color: gray;
+  }
+  
+  .dataCard {
+    margin-top: 20px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: white;
+    padding: 15px;
+  }
+  
+  .dataText {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1976d2;
+  }
+  

@@ -1,0 +1,137 @@
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+/* Not Found */
+.notFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+/* Title & Description */
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #e63946;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  max-width: 600px;
+  margin-top: 0.5rem;
+}
+
+/* Media Section */
+.mediaContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch; /* Ensures equal height */
+  gap: 2rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.imageContainer, .videoContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensures both have equal height */
+}
+
+.image, .video {
+  width: 100%;
+  max-width: 400px;
+  height: 300px; /* Ensure both take the full height */
+  object-fit: cover; /* Ensures content fills the container */
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mediaContainer {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .image, .video {
+      max-width: 100%;
+      height: auto; /* Allow natural resizing on small screens */
+  }
+}
+
+/* Grid */
+.grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Cards */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fullWidth {
+  grid-column: span 2;
+}
+
+/* Icons */
+.icon {
+  color: #e63946;
+}
+
+.warningIcon {
+  color: #ffb703;
+}
+
+.benefitIcon {
+  color: #2196f3;
+}
+
+/* Button */
+.button {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #e63946;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #c53030;
+}
